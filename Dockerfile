@@ -31,6 +31,6 @@ RUN git clone https://ceres-solver.googlesource.com/ceres-solver \
 
 RUN . /opt/ros/$ROS_DISTRO/setup.sh \
  && cd /catkin_ws \
- && catkin_make
+ && catkin_make -j1
  
  
