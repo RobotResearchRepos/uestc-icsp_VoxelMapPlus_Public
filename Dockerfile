@@ -12,6 +12,8 @@ COPY . /catkin_ws/src/VoxelMapPlus_Public
 
 RUN git clone https://github.com/Livox-SDK/livox_ros_driver /catkin_ws/src/livox_ros_driver
 
+SHELL ["/bin/bash", "-c"]
+
 RUN . /opt/ros/$ROS_DISTRO/setup.bash \
  && apt-get update \
  && rosdep install -r -y \
