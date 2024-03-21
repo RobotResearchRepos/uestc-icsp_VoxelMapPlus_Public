@@ -12,7 +12,7 @@ COPY . /catkin_ws/src/VoxelMapPlus_Public
 
 RUN git clone https://github.com/Livox-SDK/livox_ros_driver /catkin_ws/src/livox_ros_driver
 
-RUN . /opt/ros/$ROS_DISTRO/setup.sh \
+RUN . /opt/ros/$ROS_DISTRO/setup.bash \
  && apt-get update \
  && rosdep install -r -y \
      --from-paths /catkin_ws/src \
@@ -29,7 +29,7 @@ RUN git clone https://ceres-solver.googlesource.com/ceres-solver \
  && make install \
  && cd .. && rm -fr ceres-solver
 
-RUN . /opt/ros/$ROS_DISTRO/setup.sh \
+RUN . /opt/ros/$ROS_DISTRO/setup.bash \
  && cd /catkin_ws \
  && catkin_make -j1
  
