@@ -54,6 +54,7 @@ find_package(catkin REQUIRED COMPONENTS
         livox_ros_driver
         message_generation
         eigen_conversions
+        genmsg
         )
 find_package(OpenMP QUIET)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
@@ -90,6 +91,7 @@ catkin_package(
 )
 
 add_executable(voxel_mapping_plus_odom src/voxelMapping.cpp src/preprocess.cpp)
+add_dependencies(voxel_mapping_plus_odom voxel_map_plus_generate_messages)
 target_link_libraries(voxel_mapping_plus_odom ${catkin_LIBRARIES} ${PCL_LIBRARIES})
 target_include_directories(voxel_mapping_plus_odom PRIVATE ${PYTHON_INCLUDE_DIRS})
 
