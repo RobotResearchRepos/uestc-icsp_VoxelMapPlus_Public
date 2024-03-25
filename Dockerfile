@@ -22,15 +22,14 @@ RUN git clone --recurse-submodules \
       https://github.com/RobotResearchRepos/uestc-icsp_VoxelMapPlus_Public \
       /catkin_ws/src/VoxelMapPlus_Public
 
-RUN source /opt/ros/$ROS_DISTRO/setup.bash \
+RUN . /opt/ros/$ROS_DISTRO/setup.sh \
  && apt-get update \
  && rosdep install -r -y \
      --from-paths /catkin_ws/src \
      --ignore-src \
  && rm -rf /var/lib/apt/lists/*
 
-RUN source /opt/ros/$ROS_DISTRO/setup.bash \
- && source /catkin_ws/devel/setup.bash \
+RUN . /opt/ros/$ROS_DISTRO/setup.sh \
  && cd /catkin_ws \
  && catkin_make -j1
  
